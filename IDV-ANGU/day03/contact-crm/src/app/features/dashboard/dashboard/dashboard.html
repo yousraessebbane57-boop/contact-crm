@@ -1,0 +1,56 @@
+<section class="dashboard-container">
+  <div class="dashboard-heading">
+    <div>
+      <h1>Dashboard</h1>
+      <p>Welcome to your Contact CRM.</p>
+    </div>
+
+    <a routerLink="/contacts/new" class="add-button">+ Add Contact</a>
+  </div>
+
+  <div class="stats-grid">
+    <article class="stat-card">
+      <h2>Total Contacts</h2>
+      <p>{{ totalContacts() }}</p>
+    </article>
+
+    <article class="stat-card">
+      <h2>Categories</h2>
+      <p>{{ totalCategories() }}</p>
+    </article>
+
+    <article class="stat-card">
+      <h2>Favorites</h2>
+      <p>{{ totalFavorites() }}</p>
+    </article>
+  </div>
+
+  <section class="recent-section">
+    <div class="section-heading">
+      <h2>Recent Contacts</h2>
+      <a routerLink="/contacts">View all</a>
+    </div>
+
+    @if (recentContacts().length === 0) {
+      <div class="empty-state">
+        <p>No contacts yet. Start by adding your first contact.</p>
+        <a routerLink="/contacts/new">Create a contact</a>
+      </div>
+    } @else {
+      <div class="recent-list">
+        @for (contact of recentContacts(); track contact.id) {
+          <article class="recent-card">
+            <div>
+              <h3>{{ contact.firstName }} {{ contact.lastName }}</h3>
+              <p>{{ contact.email }}</p>
+            </div>
+
+            <span>{{ contact.createdAt | date:'mediumDate' }}</span>
+
+            <a [routerLink]="['/contacts', contact.id]">View</a>
+          </article>
+        }
+      </div>
+    }
+  </section>
+</section>

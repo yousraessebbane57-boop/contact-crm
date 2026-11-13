@@ -1,0 +1,42 @@
+<section class="favorites-container">
+  <div class="page-heading">
+    <div>
+      <h1>My Favorites</h1>
+      <p>Your favorite contacts in one place.</p>
+    </div>
+
+    <span>{{ favorites().length }} favorite(s)</span>
+  </div>
+
+  @if (favorites().length === 0) {
+    <div class="empty-state">
+      <h2>No favorites yet</h2>
+      <p>Mark a contact as favorite to find it here.</p>
+      <a routerLink="/contacts">Browse contacts</a>
+    </div>
+  } @else {
+    <div class="favorites-grid">
+      @for (contact of favorites(); track contact.id) {
+        <article class="favorite-card">
+          <div>
+            <h2>{{ contact.firstName }} {{ contact.lastName }}</h2>
+            <p>{{ contact.jobTitle || 'No job title' }}</p>
+            <p>{{ contact.email }}</p>
+            <p>{{ contact.company || 'No company' }}</p>
+          </div>
+
+          <div class="card-actions">
+            <a [routerLink]="['/contacts', contact.id]">View details</a>
+
+            <button
+              type="button"
+              (click)="toggleFavorite(contact.id)"
+            >
+              Remove favorite
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>

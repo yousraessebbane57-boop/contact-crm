@@ -1,0 +1,16 @@
+<header class="header">
+  <a class="logo" routerLink="/">Contact CRM</a>
+
+  <nav class="navigation">
+    <a routerLink="/" routerLinkActive="active"
+       [routerLinkActiveOptions]="{ exact: true }">
+      Dashboard
+    </a>
+
+    <a routerLink="/contacts" routerLinkActive="active">Contacts</a>
+
+    <a routerLink="/categories" routerLinkActive="active">Categories</a>
+
+    <a routerLink="/favorites" routerLinkActive="active">Favorites</a>
+  </nav>
+</header>

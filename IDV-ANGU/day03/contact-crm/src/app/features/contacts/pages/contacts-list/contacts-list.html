@@ -1,0 +1,80 @@
+<section class="contacts-container">
+  <div class="page-header">
+    <div>
+      <h1>My Contacts</h1>
+      <p>Manage all your contacts in one place.</p>
+    </div>
+
+    <a routerLink="/contacts/new" class="add-button">
+      + Add Contact
+    </a>
+  </div>
+
+  <div class="filters">
+    <input
+      type="search"
+      placeholder="Search by name or email..."
+      (input)="onSearch($event)"
+    />
+
+    <select (change)="onCategoryChange($event)">
+      <option value="">All categories</option>
+      @for (category of categories(); track category.id) {
+        <option [value]="category.id">{{ category.name }}</option>
+      }
+    </select>
+
+    <select (change)="onSortChange($event)">
+      <option value="name">Sort by name</option>
+      <option value="newest">Newest first</option>
+      <option value="oldest">Oldest first</option>
+    </select>
+  </div>
+
+  <p class="contact-count">
+    {{ filteredContacts().length }} contact(s)
+  </p>
+
+  @if (filteredContacts().length === 0) {
+    <div class="empty-state">
+      <h2>No contacts found</h2>
+      <p>Try another search or add a new contact.</p>
+      <a routerLink="/contacts/new">Create a contact</a>
+    </div>
+  } @else {
+    <div class="contacts-grid">
+      @for (contact of filteredContacts(); track contact.id) {
+        <article class="contact-card">
+          <div class="card-header">
+            <h2>{{ contact.firstName }} {{ contact.lastName }}</h2>
+
+            <button
+              class="favorite-button"
+              (click)="toggleFavorite(contact.id)"
+              type="button"
+            >
+              {{ contact.favorite ? '★' : '☆' }}
+            </button>
+          </div>
+
+          <p>{{ contact.jobTitle }}</p>
+          <p>{{ contact.company }}</p>
+          <p>{{ contact.email }}</p>
+          <p>{{ contact.phone }}</p>
+
+          <div class="card-actions">
+            <a [routerLink]="['/contacts', contact.id]">View details</a>
+
+            <button
+              type="button"
+              class="delete-button"
+              (click)="deleteContact(contact.id)"
+            >
+              Delete
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>

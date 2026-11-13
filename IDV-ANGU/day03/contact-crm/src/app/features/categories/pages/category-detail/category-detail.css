@@ -1,0 +1,52 @@
+.detail-container {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.category-detail-card {
+  padding: 30px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.category-detail-card h1 {
+  color: #1e293b;
+}
+
+.description {
+  margin: 20px 0;
+  color: #64748b;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.edit-button,
+.actions button {
+  padding: 11px 16px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.edit-button {
+  background: #2563eb;
+  color: white;
+}
+
+.actions button {
+  background: #fee2e2;
+  color: #dc2626;
+}

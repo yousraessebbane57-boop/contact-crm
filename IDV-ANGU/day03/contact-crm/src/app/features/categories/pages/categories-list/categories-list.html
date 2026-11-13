@@ -1,0 +1,38 @@
+<section class="categories-container">
+  <div class="page-header">
+    <div>
+      <h1>My Categories</h1>
+      <p>Organize your contacts into categories.</p>
+    </div>
+
+    <a routerLink="/categories/new" class="add-button">
+      + Add Category
+    </a>
+  </div>
+
+  <p class="category-count">{{ categories().length }} categor(ies)</p>
+
+  @if (categories().length === 0) {
+    <div class="empty-state">
+      <h2>No categories yet</h2>
+      <p>Create your first category to organize your contacts.</p>
+      <a routerLink="/categories/new">Create a category</a>
+    </div>
+  } @else {
+    <div class="categories-grid">
+      @for (category of categories(); track category.id) {
+        <article class="category-card">
+          <h2>{{ category.name }}</h2>
+          <p>{{ category.description || 'No description' }}</p>
+
+          <div class="category-actions">
+            <a [routerLink]="['/categories', category.id]">View details</a>
+            <button type="button" (click)="deleteCategory(category.id)">
+              Delete
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>

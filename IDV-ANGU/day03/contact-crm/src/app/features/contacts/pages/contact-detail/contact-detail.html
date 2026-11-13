@@ -1,0 +1,39 @@
+@if (contact(); as item) {
+  <section class="detail-container">
+    <a routerLink="/contacts" class="back-link">← Back to contacts</a>
+
+    <div class="detail-card">
+      <div class="detail-header">
+        <div>
+          <h1>{{ item.firstName }} {{ item.lastName }}</h1>
+          <p>{{ item.jobTitle }} · {{ item.company }}</p>
+        </div>
+
+        <button type="button" class="favorite-button" (click)="toggleFavorite()">
+          {{ item.favorite ? '★ Favorite' : '☆ Add to favorites' }}
+        </button>
+      </div>
+
+      <div class="detail-info">
+        <p><strong>Email:</strong> {{ item.email }}</p>
+        <p><strong>Phone:</strong> {{ item.phone || 'Not provided' }}</p>
+        <p><strong>Company:</strong> {{ item.company || 'Not provided' }}</p>
+        <p><strong>Job title:</strong> {{ item.jobTitle || 'Not provided' }}</p>
+        <p><strong>Category:</strong> {{ categoryName(item.categoryId) }}</p>
+        <p><strong>Notes:</strong> {{ item.notes || 'No notes' }}</p>
+        <p><strong>Created:</strong> {{ item.createdAt | date:'medium' }}</p>
+        <p><strong>Last updated:</strong> {{ item.updatedAt | date:'medium' }}</p>
+      </div>
+
+      <div class="detail-actions">
+        <a [routerLink]="['/contacts', item.id, 'edit']">Edit contact</a>
+        <button type="button" (click)="deleteContact()">Delete contact</button>
+      </div>
+    </div>
+  </section>
+} @else {
+  <section class="detail-container">
+    <h1>Contact not found</h1>
+    <a routerLink="/contacts">Back to contacts</a>
+  </section>
+}

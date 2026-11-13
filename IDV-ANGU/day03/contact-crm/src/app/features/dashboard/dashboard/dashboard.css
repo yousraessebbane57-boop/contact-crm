@@ -1,0 +1,117 @@
+.dashboard-container {
+  width: 100%;
+}
+
+.dashboard-heading,
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.dashboard-heading {
+  margin-bottom: 30px;
+}
+
+.dashboard-heading h1 {
+  color: #1e293b;
+}
+
+.dashboard-heading p {
+  color: #64748b;
+}
+
+.add-button {
+  padding: 12px 18px;
+  background: #2563eb;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  padding: 25px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.stat-card h2 {
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.stat-card p {
+  margin-top: 15px;
+  color: #1e293b;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.recent-section {
+  padding: 25px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.section-heading {
+  margin-bottom: 20px;
+}
+
+.section-heading h2 {
+  color: #1e293b;
+}
+
+.section-heading a,
+.recent-card a,
+.empty-state a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.recent-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 0;
+  border-top: 1px solid #e2e8f0;
+}
+
+.recent-card h3 {
+  color: #1e293b;
+}
+
+.recent-card p,
+.recent-card span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.empty-state {
+  padding: 25px 0;
+  color: #64748b;
+}
+
+@media (max-width: 600px) {
+  .dashboard-heading,
+  .recent-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

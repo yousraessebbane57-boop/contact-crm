@@ -1,0 +1,26 @@
+<section class="detail-container">
+  @if (category(); as item) {
+    <a routerLink="/categories" class="back-link">← Back to categories</a>
+
+    <div class="category-detail-card">
+      <h1>{{ item.name }}</h1>
+
+      <p class="description">
+        {{ item.description || 'No description available.' }}
+      </p>
+
+      <div class="actions">
+        <a [routerLink]="['/categories', item.id, 'edit']" class="edit-button">
+          Edit category
+        </a>
+
+        <button type="button" (click)="deleteCategory()">
+          Delete category
+        </button>
+      </div>
+    </div>
+  } @else {
+    <h1>Category not found</h1>
+    <a routerLink="/categories">Back to categories</a>
+  }
+</section>

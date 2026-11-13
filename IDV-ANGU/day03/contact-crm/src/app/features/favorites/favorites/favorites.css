@@ -1,0 +1,89 @@
+.favorites-container {
+  width: 100%;
+}
+
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.page-heading h1 {
+  color: #1e293b;
+}
+
+.page-heading p,
+.page-heading span {
+  color: #64748b;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.favorite-card {
+  padding: 22px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.favorite-card h2 {
+  margin-bottom: 12px;
+  color: #1e293b;
+}
+
+.favorite-card p {
+  margin: 7px 0;
+  color: #64748b;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.card-actions a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.card-actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #fee2e2;
+  color: #dc2626;
+  cursor: pointer;
+}
+
+.empty-state {
+  padding: 50px 20px;
+  text-align: center;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+
+.empty-state p {
+  margin: 12px 0;
+  color: #64748b;
+}
+
+.empty-state a {
+  color: #2563eb;
+}
+
+@media (max-width: 600px) {
+  .page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
